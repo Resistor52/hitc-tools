@@ -1,9 +1,10 @@
 FROM ubuntu
 
 # Add the Non-privileged user
-RUN useradd -m hitc && apt update && apt install -y sudo git && echo "hitc ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN useradd -s /bin/bash -m hitc && apt update && apt install -y sudo git && echo "hitc ALL=(ALL) NOPASSWD: ALL" >>   /etc/sudoers
 USER hitc
 WORKDIR /home/hitc
+SHELL ["/bin/bash", "-c"]
 
 # AWS CLI
 RUN sudo apt update && sudo apt install -y curl unzip sudo \
