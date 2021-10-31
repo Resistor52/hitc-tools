@@ -23,3 +23,4 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.c
 && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg \
 | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - \
 && sudo apt update -y && sudo apt install google-cloud-sdk -y
+
