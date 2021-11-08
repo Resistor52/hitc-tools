@@ -1,5 +1,9 @@
 FROM ubuntu
 
+# Install tzdata
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y tzdata && unlink /etc/localtime && ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+
 # Add the Non-privileged user
 RUN useradd -s /bin/bash -m hitc && apt update && apt install -y sudo git && echo "hitc ALL=(ALL) NOPASSWD: ALL" >>   /etc/sudoers
 USER hitc
